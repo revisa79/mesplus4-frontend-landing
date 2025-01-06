@@ -96,7 +96,10 @@ const OurServices = ({ setSelectedPage }: Props) => {
         timeout += 2000; // Delay before the next hover
       };
 
-      hoverSequentially(0); // Start with the first image
+      // Add an initial delay before starting the sequential hover
+      setTimeout(() => {
+        hoverSequentially(0); // Start with the first image after the initial delay
+      }, 1500); // Initial delay of 1.5 seconds
     }
   }, [startAnimation]);
 
@@ -135,6 +138,7 @@ const OurServices = ({ setSelectedPage }: Props) => {
             transition={
               startAnimation
                 ? {
+                    delay: 0.9, // Delay the animation by 1.5 seconds
                     duration: 6, // Total duration for one cycle (left and right)
                     repeat: 0, // No repetition
                     ease: "easeInOut",
@@ -155,25 +159,14 @@ const OurServices = ({ setSelectedPage }: Props) => {
             ))}
           </motion.ul>
         </div>
-        <motion.div
-          className="mx-auto w-5/6"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, x: -50 },
-            visible: { opacity: 1, x: 0 },
-          }}
-        >
-          <div>
-            <p className="py-11 text-lg flex items-center">
-              <BoltIcon className="h-6 w-6 text-yellow-500 mr-2" />{" "}
-              {/* Light bulb icon */}
-              Implementing all features will maximize the potential of MES+4.0.
-            </p>
-          </div>
-        </motion.div>
+    
+        <div className="mx-auto w-5/6">
+          <p className="py-11 text-lg flex items-center">
+            <BoltIcon className="h-6 w-6 text-yellow-500 mr-2" />{" "}
+            {/* Light bulb icon */}
+            Implementing all features will maximize the potential of MES+4.0.
+          </p>
+        </div>
       </motion.div>
     </section>
   );
