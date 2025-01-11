@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import Logo from "@/assets/Teradyne-logo.png";
+//import Logo from "@/assets/Teradyne-logo.png";
+import Logo from "@/assets/MESPlusLogo-removebg-preview.png";
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -25,8 +26,8 @@ const Navbar = ({ isTopOfPage,selectedPage, setSelectedPage }: Props) => {
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/*LEFT SIDE*/}
-            <img src={Logo} alt="logo" />
-
+            {/*<img src={Logo} alt="logo" />*/}
+            <img src={Logo} alt="logo" className="w-28 h-auto border-4 border-blue-700 rounded-tl-xl rounded-bl-xl rounded-br-xl opacity-80" />
             {/*RIGHT SIDE*/}{/* When desktop screen */}
             {isAboveMediumScreens ? (   
             <div className={`${flexBetween} w-full`}>
