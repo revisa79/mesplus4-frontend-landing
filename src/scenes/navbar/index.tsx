@@ -54,7 +54,9 @@ const Navbar = ({ isTopOfPage,selectedPage, setSelectedPage }: Props) => {
                 />
               </div>
               <div className={`${flexBetween} gap-8`}>
-                <p>Sign In</p>
+                <a href="http://35.206.223.102:8080" target="_blank" rel="noopener noreferrer">
+                  <p>Sign In</p>
+                </a>
                 <ActionButton setSelectedPage={setSelectedPage}>Get an Access</ActionButton>
               </div>
             </div>        
@@ -83,22 +85,34 @@ const Navbar = ({ isTopOfPage,selectedPage, setSelectedPage }: Props) => {
                 <Link
                   page="Home"
                   selectedPage={selectedPage}
-                  setSelectedPage={setSelectedPage}
+                  setSelectedPage={(value) => {
+                    setSelectedPage(value);
+                    setIsMenuToggled(false); // Close the menu
+                  }}
                 />
                 <Link
                   page="Benefits"
                   selectedPage={selectedPage}
-                  setSelectedPage={setSelectedPage}
+                  setSelectedPage={(value) => {
+                    setSelectedPage(value);
+                    setIsMenuToggled(false); // Close the menu
+                  }}
                 />
                 <Link
                   page="Our Services"
                   selectedPage={selectedPage}
-                  setSelectedPage={setSelectedPage}
+                  setSelectedPage={(value) => {
+                    setSelectedPage(value);
+                    setIsMenuToggled(false); // Close the menu
+                  }}
                 />
                 <Link
                   page="Contact Us"
                   selectedPage={selectedPage}
-                  setSelectedPage={setSelectedPage}
+                  setSelectedPage={(value) => {
+                    setSelectedPage(value);
+                    setIsMenuToggled(false); // Close the menu
+                  }}
                 />
               </div>
         </div>

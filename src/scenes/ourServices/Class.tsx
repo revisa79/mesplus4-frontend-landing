@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Class = ({ name, description, image, isHovered, onMouseEnter, onMouseLeave }: Props) => {
-  const overlayStyles = `p-5 absolute z-29 flex h-[380px] w-[450px] flex-col items-center justify-center
+  const overlayStyles = `p-5 absolute z-29 flex h-[350px] w-[450px] flex-col items-center justify-center
     whitespace-normal bg-primary-500 text-center text-white
     opacity-0 transition-opacity duration-500 ${isHovered ? "opacity-90" : "opacity-0"}`;
 

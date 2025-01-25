@@ -1,8 +1,9 @@
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import ContactUsPageGraphic from "@/assets/steptodown_contactus.png"
+import ContactUsPageGraphic from "@/assets/steptodown_contactus.png";
 import HText from "@/shared/HText";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -23,6 +24,9 @@ const ContactUs = ({ setSelectedPage }: Props) => {
     }
   };
 
+  // Check if the screen width is above 1060px
+  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
+
   return (
     <section id="contactus" className="mx-auto w-5/6 py-3">
       <motion.div
@@ -41,9 +45,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           }}
         >
           <HText>
-            <span className="text-primary-500 mt-16"><br /><br /><br />CONTACT US</span>
+            <span className="text-primary-500 mt-16">
+              <br />
+              <br />
+              <br />
+              CONTACT US
+            </span>
           </HText>
-         
         </motion.div>
 
         {/* FORM AND IMAGE */}
@@ -81,7 +89,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   maxLength: 100,
                 })}
               />
-              
+
               {errors.email && (
                 <p className="mt-1 text-primary-500">
                   {errors.email.type === "required" &&
@@ -98,7 +106,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   pattern: /^[A-Z0-9._%+-]+@[A-Z0-9]+\.[A-Z]{2,}$/i,
                 })}
               />
-              
+
               {errors.message && (
                 <p className="mt-1 text-primary-500">
                   {errors.message.type === "required" &&
@@ -117,7 +125,6 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   maxLength: 100,
                 })}
               />
-              
 
               <button
                 type="submit"
@@ -127,7 +134,10 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               </button>
             </form>
           </motion.div>
-          <motion.div
+
+          {/* Conditionally Render Image */}
+          {isAboveMediumScreens && (
+            <motion.div
             className="relative mt-16 basis-2/5 md:mt-0"
             initial="hidden"
             whileInView="visible"
@@ -140,12 +150,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           >
             <div className="w-full before:absolute before:-bottom-5 before:-right-10 before:z-[-1]">
               <img
-                className="w-full -mt-40 opacity-50"
+                className="absolute top-[-80px] left-0 w-[auto] h-[400px] opacity-50"
                 alt="contact-us-page-graphic"
                 src={ContactUsPageGraphic}
               />
             </div>
           </motion.div>
+          )}
         </div>
       </motion.div>
     </section>
